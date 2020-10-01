@@ -16,16 +16,16 @@ namespace Utilities.UseCase
 
     public static class RequestTypeExtension
     {
-        public static bool HasLocalStorage(this RequestType requestType)
+        public static bool HasLocalStorage(this IUseCaseRequest request)
         {
-            return requestType == RequestType.LocalAndNetwork || requestType == RequestType.LocalStorage
-                || requestType == RequestType.Sync;
+            return request.Type == RequestType.LocalAndNetwork || request.Type == RequestType.LocalStorage
+                || request.Type == RequestType.Sync;
         }
 
-        public static bool HasNetwork(this RequestType requestType)
+        public static bool HasNetwork(this IUseCaseRequest request)
         {
-            return requestType == RequestType.LocalAndNetwork || requestType == RequestType.Network
-                || requestType == RequestType.Sync;
+            return request.Type == RequestType.LocalAndNetwork || request.Type == RequestType.Network
+                || request.Type == RequestType.Sync;
         }
     }
 }
